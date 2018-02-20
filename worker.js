@@ -13,7 +13,7 @@ class Worker extends SCWorker {
       const max = news.length - 1;
 
       const interval = setInterval(() => {
-        self.scServer.exchange.publish('news', { news: news[count] });
+        socket.emit('news', { news: news[count] });
 
         count = count === max
           ? 0
